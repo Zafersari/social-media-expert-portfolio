@@ -1,0 +1,14 @@
+{
+  "name": "social-media-expert-portfolio",
+  "version": "1.0.0",
+  "description": "Full-stack portfolio for social media expert",
+  "scripts": {
+    "install-all": "cd frontend && npm install && cd ../backend && npm install",
+    "dev": "concurrently \"cd frontend && npm run dev\" \"cd backend && npm run dev\"",
+    "start:frontend": "cd frontend && npm run dev",
+    "start:backend": "cd backend && npm run dev"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  }
+}
