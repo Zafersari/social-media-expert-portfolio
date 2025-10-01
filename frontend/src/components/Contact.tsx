@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import "../styles/Portfolio.css";
 
-function Portfolio() {
+function Contact() {
   const navigate = useNavigate();
   return (
     <div className="container-fluid p-0 portfolio-container">
@@ -113,4 +113,4 @@ function Portfolio() {
   );
 }
 
-export default Portfolio;
+export default Contact;
