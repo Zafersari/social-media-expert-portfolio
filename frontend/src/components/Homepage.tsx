@@ -40,16 +40,30 @@ function Homepage() {
       </header>
 
       {/* Hero Section */}
-      <section id="home" className="row min-vh-100 d-flex align-items-center m-0 hero-section" style={{ backgroundImage: 'url(/hero_background.png)' }}>
-        <div className="col-lg-6 px-5">
-          <h1 className="display-4 fw-bold mb-4 hero-title">
+      <section id="home" className="row min-vh-100 d-flex align-items-center m-0 hero-section" style={{ backgroundColor: '#696969'}}>
+        <div className="col-lg-3 d-none d-lg-flex flex-column justify-content-center align-items-center gap-5 px-4">
+          <div className="stat-box">
+            <div className="stat-number">500+</div>
+            <div className="stat-label">Happy Clients</div>
+          </div>
+          <div className="stat-box">
+            <div className="stat-number">5+</div>
+            <div className="stat-label">Years Experience</div>
+          </div>
+        </div>
+
+        <div className="col-lg-6 text-center">
+          <div className="mx-auto hero-image-container">
+            <img src="/tuba_abla.svg" alt="Tuba Sarıoğlu Busun" className="hero-image-img" />
+          </div>
+          <h1 className="display-4 fw-bold mt-4 hero-title">
             Sosyal Medya Uzmanı / Tuba Sarıoğlu Busun
           </h1>
-          <p className="lead mb-4 hero-description">
+          <p className="lead mt-3 hero-description">
             Helping brands grow their online presence and connect with their audience
             through strategic social media marketing and engaging content.
           </p>
-          <div className="d-flex gap-3">
+          <div className="d-flex gap-3 justify-content-center mt-4">
             <button className="btn btn-lg hero-btn-primary" onClick={() => navigate('/contact')}>İletişime Geçin...</button>
             <button
               className="btn btn-lg hero-btn-secondary"
@@ -59,9 +73,15 @@ function Homepage() {
             </button>
           </div>
         </div>
-        <div className="col-lg-6 text-center">
-          <div className="mx-auto rounded-circle d-flex align-items-center justify-content-center hero-image-circle">
-            <img src="/tuba_abla_3.jpg" alt="Tuba Sarıoğlu Busun" className="hero-image-circle-img" />
+
+        <div className="col-lg-3 d-none d-lg-flex flex-column justify-content-center align-items-center gap-5 px-4">
+          <div className="stat-box">
+            <div className="stat-number">1000+</div>
+            <div className="stat-label">Projects Done</div>
+          </div>
+          <div className="stat-box">
+            <div className="stat-number">95%</div>
+            <div className="stat-label">Success Rate</div>
           </div>
         </div>
       </section>
