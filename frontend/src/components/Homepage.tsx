@@ -40,48 +40,63 @@ function Homepage() {
       </header>
 
       {/* Hero Section */}
-      <section id="home" className="row min-vh-100 d-flex align-items-center m-0 hero-section" style={{ backgroundColor: '#696969'}}>
-        <div className="col-lg-3 d-none d-lg-flex flex-column justify-content-center align-items-center gap-5 px-4">
-          <div className="stat-box">
-            <div className="stat-number">500+</div>
-            <div className="stat-label">Happy Clients</div>
-          </div>
-          <div className="stat-box">
-            <div className="stat-number">5+</div>
-            <div className="stat-label">Years Experience</div>
-          </div>
-        </div>
+      <section id="home" className="min-vh-100 d-flex align-items-center m-0 hero-section">
+        <div className="container-fluid px-0">
+          <div className="row g-0 align-items-center">
+            {/* Left Side - Photo */}
+            <div className="col-lg-6 hero-image-wrapper">
+              <img src="/tuba_abla.png" alt="Tuba Sarıoğlu Busun" className="hero-main-image" />
+            </div>
+            {/* Right Side - Content */}
+            <div className="col-lg-6 hero-content-wrapper">
+              <div className="hero-content px-5">
+                <div className="hero-badge mb-4">Social Media Expert</div>
+                <h1 className="hero-main-title mb-4">
+                  Tuba Sarıoğlu Busun
+                </h1>
+                <p className="hero-subtitle mb-5">
+                  Helping brands grow their online presence and connect with their audience
+                  through strategic social media marketing and engaging content.
+                </p>
+                {/* Stats Row */}
+                <div className="row mb-5 hero-stats">
+                  <div className="col-6 col-md-3 mb-3">
+                    <div className="stat-item">
+                      <div className="stat-num">500+</div>
+                      <div className="stat-text">Happy Clients</div>
+                    </div>
+                  </div>
+                  <div className="col-6 col-md-3 mb-3">
+                    <div className="stat-item">
+                      <div className="stat-num">5+</div>
+                      <div className="stat-text">Years Exp.</div>
+                    </div>
+                  </div>
+                  <div className="col-6 col-md-3 mb-3">
+                    <div className="stat-item">
+                      <div className="stat-num">1000+</div>
+                      <div className="stat-text">Projects</div>
+                    </div>
+                  </div>
+                  <div className="col-6 col-md-3 mb-3">
+                    <div className="stat-item">
+                      <div className="stat-num">95%</div>
+                      <div className="stat-text">Success Rate</div>
+                    </div>
+                  </div>
+                </div>
 
-        <div className="col-lg-6 text-center">
-          <div className="mx-auto hero-image-container">
-            <img src="/tuba_abla.svg" alt="Tuba Sarıoğlu Busun" className="hero-image-img" />
-          </div>
-          <h1 className="display-4 fw-bold mt-4 hero-title">
-            Sosyal Medya Uzmanı / Tuba Sarıoğlu Busun
-          </h1>
-          <p className="lead mt-3 hero-description">
-            Helping brands grow their online presence and connect with their audience
-            through strategic social media marketing and engaging content.
-          </p>
-          <div className="d-flex gap-3 justify-content-center mt-4">
-            <button className="btn btn-lg hero-btn-primary" onClick={() => navigate('/contact')}>İletişime Geçin...</button>
-            <button
-              className="btn btn-lg hero-btn-secondary"
-              onClick={() => navigate('/portfolio')}
-            >
-              View Portfolio
-            </button>
-          </div>
-        </div>
-
-        <div className="col-lg-3 d-none d-lg-flex flex-column justify-content-center align-items-center gap-5 px-4">
-          <div className="stat-box">
-            <div className="stat-number">1000+</div>
-            <div className="stat-label">Projects Done</div>
-          </div>
-          <div className="stat-box">
-            <div className="stat-number">95%</div>
-            <div className="stat-label">Success Rate</div>
+                {/* Buttons */}
+                <div className="d-flex gap-3 flex-wrap">
+                  <button className="btn btn-lg hero-btn-primary" onClick={() => navigate('/contact')}>
+                    İletişime Geçin
+                  </button>
+                  <button className="btn btn-lg hero-btn-secondary" onClick={() => navigate('/portfolio')}>
+                    View Portfolio
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
