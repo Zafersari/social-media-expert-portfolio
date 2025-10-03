@@ -5,180 +5,155 @@ function Homepage() {
   const navigate = useNavigate();
 
   return (
-    <div className="container-fluid p-0 homepage-container">
-      {/* Header */}
-      <header className="navbar navbar-expand-lg navbar-dark shadow-sm sticky-top homepage-header">
-        <div className="container-fluid px-5">
-          <a className="navbar-brand fw-bold homepage-brand" href="#home">
-            Tuba Sarıoğlu Busun
-          </a>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <ul className="navbar-nav gap-4">
-              <li className="nav-item">
-                <a className="nav-link homepage-nav-link" href="#services">Services</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link homepage-nav-link" href="#about">About Me</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link homepage-nav-link" href="#contact">Contact</a>
-              </li>
-            </ul>
-          </div>
+    <div className="homepage-container">
+      {/* Navigation */}
+      <nav className="homepage-nav">
+        <div className="nav-logo" ><img src="logo.png" alt="Website Logo" /></div>
+        <div className="nav-menu">
+          <a href="#hakkimda" className="nav-link">HAKKIMDA</a>
+          <a href="#hizmetlerimiz" className="nav-link">HIZMETLERIMIZ</a>
+          <a href="#blog" className="nav-link">BLOG</a>
+          <a href="#iletisim" className="nav-link">ILETISIM</a>
         </div>
-      </header>
+      </nav>
 
       {/* Hero Section */}
-      <section id="home" className="min-vh-100 d-flex align-items-center m-0 hero-section">
-        <div className="container-fluid px-0">
-          <div className="row g-0 align-items-center">
-            {/* Left Side - Photo */}
-            <div className="col-lg-6 hero-image-wrapper">
-              <img src="/tuba_abla.png" alt="Tuba Sarıoğlu Busun" className="hero-main-image" />
+      <section className="hero-section">
+        <div className="hero-grid">
+          {/* Left Side - Image */}
+          <div className="hero-image-side">
+            <div className="hero-image-container">
+              <img src="/tuba_abla_3.jpg" alt="Tuba Sarıoğlu Busun" className="hero-image" />
             </div>
-            {/* Right Side - Content */}
-            <div className="col-lg-6 hero-content-wrapper">
-              <div className="hero-content px-5">
-                <div className="hero-badge mb-4">Social Media Expert</div>
-                <h1 className="hero-main-title mb-4">
-                  Tuba Sarıoğlu Busun
-                </h1>
-                <p className="hero-subtitle mb-5">
-                  Helping brands grow their online presence and connect with their audience
-                  through strategic social media marketing and engaging content.
-                </p>
-                {/* Stats Row */}
-                <div className="row mb-5 hero-stats">
-                  <div className="col-6 col-md-3 mb-3">
-                    <div className="stat-item">
-                      <div className="stat-num">500+</div>
-                      <div className="stat-text">Happy Clients</div>
-                    </div>
-                  </div>
-                  <div className="col-6 col-md-3 mb-3">
-                    <div className="stat-item">
-                      <div className="stat-num">5+</div>
-                      <div className="stat-text">Years Exp.</div>
-                    </div>
-                  </div>
-                  <div className="col-6 col-md-3 mb-3">
-                    <div className="stat-item">
-                      <div className="stat-num">1000+</div>
-                      <div className="stat-text">Projects</div>
-                    </div>
-                  </div>
-                  <div className="col-6 col-md-3 mb-3">
-                    <div className="stat-item">
-                      <div className="stat-num">95%</div>
-                      <div className="stat-text">Success Rate</div>
-                    </div>
-                  </div>
-                </div>
+          </div>
 
-                {/* Buttons */}
-                <div className="d-flex gap-3 flex-wrap">
-                  <button className="btn btn-lg hero-btn-primary" onClick={() => navigate('/contact')}>
-                    İletişime Geçin
-                  </button>
-                  <button className="btn btn-lg hero-btn-secondary" onClick={() => navigate('/portfolio')}>
-                    View Portfolio
-                  </button>
-                </div>
+          {/* Right Side - Content */}
+          <div className="hero-content-side">
+            <h1 className="hero-name">Tuba Sarıoğlu Busun</h1>
+            <p className="hero-title">SOCIAL MEDIA EXPERT</p>
+
+            {/* Location */}
+            <div className="hero-location">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+              <span>ISTANBUL</span>
+            </div>
+
+            {/* Social Icons */}
+            <div className="hero-social">
+              <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" className="social-icon" title="WhatsApp">
+                WA
+              </a>
+              <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" className="social-icon" title="Instagram">
+                IG
+              </a>
+              <a href="mailto:contact@example.com" className="social-icon" title="Email">
+                EM
+              </a>
+            </div>
+
+            {/* Stats */}
+            <div className="hero-stats">
+              <div className="stat-item">
+                <div className="stat-number">500+</div>
+                <div className="stat-label">Happy Clients</div>
               </div>
+              <div className="stat-item">
+                <div className="stat-number">5+</div>
+                <div className="stat-label">Years Experience</div>
+              </div>
+              <div className="stat-item">
+                <div className="stat-number">1000+</div>
+                <div className="stat-label">Projects</div>
+              </div>
+              <div className="stat-item">
+                <div className="stat-number">95%</div>
+                <div className="stat-label">Success Rate</div>
+              </div>
+            </div>
+
+            {/* Description */}
+            <p className="hero-description">
+              Helping brands grow their online presence and connect with their audience
+              through strategic social media marketing and engaging content.
+            </p>
+
+            {/* Buttons */}
+            <div className="hero-buttons">
+              <button className="btn-primary" onClick={() => navigate('/contact')}>
+                İletişime Geçin
+              </button>
+              <button className="btn-secondary" onClick={() => navigate('/portfolio')}>
+                View Portfolio
+              </button>
             </div>
           </div>
         </div>
       </section>
 
       {/* Services Section */}
-      <section id="services" className="row py-5 m-0 services-section">
-        <div className="col-12 text-center mb-5 px-5">
-          <h2 className="display-5 fw-bold services-title">Services</h2>
-          <p className="services-subtitle mt-3">Professional solutions tailored to your needs</p>
-        </div>
-        <div className="col-md-4 mb-4 px-4">
-          <div className="card h-100 service-card">
-            <div className="card-body text-center p-4">
-              <div className="mb-3">
-                <span className="fs-1">📈</span>
-              </div>
-              <h5 className="card-title fw-bold service-card-title">Strategy Development</h5>
-              <p className="card-text service-card-text">
-                Creating comprehensive social media strategies tailored to your brand's goals.
-              </p>
-            </div>
+      <section id="services" className="services-section">
+        <h2 className="services-heading">Services</h2>
+        <p className="services-subheading">Professional solutions tailored to your needs</p>
+        
+        <div className="services-grid">
+          <div className="service-card">
+            <div className="service-icon">📈</div>
+            <h3 className="service-title">Strategy Development</h3>
+            <p className="service-description">
+              Creating comprehensive social media strategies tailored to your brand's goals.
+            </p>
           </div>
-        </div>
-        <div className="col-md-4 mb-4 px-4">
-          <div className="card h-100 service-card">
-            <div className="card-body text-center p-4">
-              <div className="mb-3">
-                <span className="fs-1">✍️</span>
-              </div>
-              <h5 className="card-title fw-bold service-card-title">Content Creation</h5>
-              <p className="card-text service-card-text">
-                Engaging posts, stories, and campaigns that resonate with your audience.
-              </p>
-            </div>
+
+          <div className="service-card">
+            <div className="service-icon">✍️</div>
+            <h3 className="service-title">Content Creation</h3>
+            <p className="service-description">
+              Engaging posts, stories, and campaigns that resonate with your audience.
+            </p>
           </div>
-        </div>
-        <div className="col-md-4 mb-4 px-4">
-          <div className="card h-100 service-card">
-            <div className="card-body text-center p-4">
-              <div className="mb-3">
-                <span className="fs-1">📊</span>
-              </div>
-              <h5 className="card-title fw-bold service-card-title">Analytics & Growth</h5>
-              <p className="card-text service-card-text">
-                Data-driven insights and optimization to maximize your social media ROI.
-              </p>
-            </div>
+
+          <div className="service-card">
+            <div className="service-icon">📊</div>
+            <h3 className="service-title">Analytics & Growth</h3>
+            <p className="service-description">
+              Data-driven insights and optimization to maximize your social media ROI.
+            </p>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="py-5 homepage-footer">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-6 mb-4">
-              <h5 className="fw-bold mb-3 footer-title">Tuba Sarıoğlu Busun</h5>
-              <p className="footer-text">Social Media Expert</p>
-              <div className="d-flex gap-2 align-items-center mt-3">
-                <span style={{ fontSize: '1.2rem' }}>📍</span>
-                <span className="footer-text">Location</span>
-              </div>
-            </div>
-            <div className="col-md-6 text-md-end">
-              <h5 className="fw-bold mb-3 footer-title">Connect With Me</h5>
-              <div className="d-flex gap-3 justify-content-md-end">
-                <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" className="footer-social-icon">
-                  <span>📱</span>
-                </a>
-                <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" className="footer-social-icon">
-                  <span>📷</span>
-                </a>
-                <a href="mailto:contact@example.com" className="footer-social-icon">
-                  <span>✉️</span>
-                </a>
-              </div>
+      <footer className="homepage-footer">
+        <div className="footer-content">
+          <div className="footer-left">
+            <h5 className="footer-name">Tuba Sarıoğlu Busun</h5>
+            <p className="footer-role">Social Media Expert</p>
+            <div className="footer-location">
+              <span>📍</span>
+              <span>Istanbul, Turkey</span>
             </div>
           </div>
-          <hr className="footer-divider" />
-          <div className="text-center">
-            <p className="mb-0 footer-copyright">&copy; {new Date().getFullYear()} Tuba Sarıoğlu Busun. All rights reserved.</p>
+          <div className="footer-right">
+            <h5 className="footer-heading">Connect With Me</h5>
+            <div className="footer-social">
+              <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" className="footer-social-link">
+                <span>📱</span>
+              </a>
+              <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" className="footer-social-link">
+                <span>📷</span>
+              </a>
+              <a href="mailto:contact@example.com" className="footer-social-link">
+                <span>✉️</span>
+              </a>
+            </div>
           </div>
+        </div>
+        <hr className="footer-divider" />
+        <div className="footer-copyright">
+          <p>&copy; {new Date().getFullYear()} Tuba Sarıoğlu Busun. All rights reserved.</p>
         </div>
       </footer>
     </div>
