@@ -1,112 +1,153 @@
 import { useNavigate } from "react-router-dom";
-import "../styles/Portfolio.css";
+import { useState } from "react";
+import "../styles/Contact.css";
 
 function Contact() {
   const navigate = useNavigate();
-  return (
-    <div className="container-fluid p-0 portfolio-container">
-      {/* Header */}
-      <header className="navbar navbar-expand-lg navbar-dark shadow-sm sticky-top portfolio-header">
-        <div className="container-fluid px-5">
-          <a className="navbar-brand fw-bold portfolio-brand" href="/">
-            Tuba Sarıoğlu Busun
-          </a>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <ul className="navbar-nav gap-4">
-              <li className="nav-item">
-                <a className="nav-link portfolio-nav-link" href="/#services">Services</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link portfolio-nav-link" href="/#about">About Me</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link portfolio-nav-link" href="/#contact">Contact</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </header>
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
 
-      {/* Portfolio Section */}
-      <section className="row min-vh-100 d-flex align-items-center m-0 portfolio-section py-5">
-        <div className="col-12 text-center px-5">
-          <h1 className="display-4 fw-bold mb-4 portfolio-title">
-            Portfolio
-          </h1>
-          <p className="lead mb-5 portfolio-description">
-            Here are some of my recent social media campaigns and success stories.
-          </p>
-          <div className="row">
-            <div className="col-md-4 mb-4">
-              <div className="card h-100 portfolio-card">
-                <div className="card-body p-4">
-                  <h5 className="card-title portfolio-card-title">Brand Campaign #1</h5>
-                  <p className="card-text portfolio-card-text">Increased engagement by 300% for a local restaurant.</p>
-                </div>
-              </div>
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch('http://localhost:5000/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        alert('Mesajınız başarıyla gönderildi!');
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        alert('Hata: ' + (data.error || 'Mesaj gönderilemedi'));
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('Bir hata oluştu. Lütfen daha sonra tekrar deneyin.');
+    }
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  return (
+    <div className="contact-container">
+      {/* Navigation */}
+      <nav className="contact-nav">
+        <div className="contact-nav-logo" onClick={() => navigate('/')}><img src="logo.png" alt="Website Logo" /></div>
+        <div className="contact-nav-menu">
+          <a href="/#hakkimda" className="contact-nav-link">HAKKIMDA</a>
+          <a href="/#hizmetlerimiz" className="contact-nav-link">HIZMETLERIMIZ</a>
+          <a href="/#blog" className="contact-nav-link">BLOG</a>
+          <a href="/#iletisim" className="contact-nav-link">ILETISIM</a>
+        </div>
+      </nav>
+
+      {/* Contact Form Section */}
+      <section className="contact-form-section">
+        <h2 className="contact-heading">İletişime Geçin</h2>
+        <p className="contact-subheading">Mesajınızı bırakın, size en kısa sürede dönüş yapalım</p>
+
+        <div className="contact-form-container">
+          <form onSubmit={handleSubmit} className="contact-form">
+            <div>
+              <input
+                type="text"
+                name="name"
+                placeholder="Adınız"
+                value={formData.name}
+                onChange={handleChange}
+                required
+                className="contact-input"
+              />
             </div>
-            <div className="col-md-4 mb-4">
-              <div className="card h-100 portfolio-card">
-                <div className="card-body p-4">
-                  <h5 className="card-title portfolio-card-title">Brand Campaign #2</h5>
-                  <p className="card-text portfolio-card-text">Grew followers by 500% for a fashion brand.</p>
-                </div>
-              </div>
+
+            <div>
+              <input
+                type="email"
+                name="email"
+                placeholder="Email Adresiniz"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                className="contact-input"
+              />
             </div>
-            <div className="col-md-4 mb-4">
-              <div className="card h-100 portfolio-card">
-                <div className="card-body p-4">
-                  <h5 className="card-title portfolio-card-title">Brand Campaign #3</h5>
-                  <p className="card-text portfolio-card-text">Boosted sales by 200% through targeted social ads.</p>
-                </div>
-              </div>
+
+            <div>
+              <input
+                type="text"
+                name="subject"
+                placeholder="Konu"
+                value={formData.subject}
+                onChange={handleChange}
+                required
+                className="contact-input"
+              />
             </div>
-          </div>
+
+            <div>
+              <textarea
+                name="message"
+                placeholder="Mesajınız"
+                value={formData.message}
+                onChange={handleChange}
+                required
+                rows={6}
+                className="contact-textarea"
+              />
+            </div>
+
+            <button type="submit" className="contact-submit-btn">
+              Gönder
+            </button>
+          </form>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="py-5 portfolio-footer">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-6 mb-4">
-              <h5 className="fw-bold mb-3 footer-title">Tuba Sarıoğlu Busun</h5>
-              <p className="footer-text">Social Media Expert</p>
-              <div className="d-flex gap-2 align-items-center mt-3">
-                <span style={{ fontSize: '1.2rem' }}>📍</span>
-                <span className="footer-text">Location</span>
-              </div>
-            </div>
-            <div className="col-md-6 text-md-end">
-              <h5 className="fw-bold mb-3 footer-title">Connect With Me</h5>
-              <div className="d-flex gap-3 justify-content-md-end">
-                <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" className="footer-social-icon">
-                  <span>📱</span>
-                </a>
-                <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" className="footer-social-icon">
-                  <span>📷</span>
-                </a>
-                <a href="mailto:contact@example.com" className="footer-social-icon">
-                  <span>✉️</span>
-                </a>
-              </div>
+      <footer className="contact-footer">
+        <div className="contact-footer-content">
+          <div className="contact-footer-left">
+            <h5 className="contact-footer-name">Tuba Sarıoğlu Busun</h5>
+            <p className="contact-footer-role">Social Media Expert</p>
+            <div className="contact-footer-location">
+              <span>📍</span>
+              <span>Denizli, Turkey</span>
             </div>
           </div>
-          <hr className="footer-divider" />
-          <div className="text-center">
-            <p className="mb-0 footer-copyright">&copy; {new Date().getFullYear()} Tuba Sarıoğlu Busun. All rights reserved.</p>
+          <div className="contact-footer-right">
+            <h5 className="contact-footer-heading">Benimle İletişime Geçin</h5>
+            <div className="contact-footer-social">
+              <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" className="contact-footer-social-link">
+                <span>📱</span>
+              </a>
+              <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" className="contact-footer-social-link">
+                <span>📷</span>
+              </a>
+              <a href="mailto:zafer_sari_20@hotmail.com" className="contact-footer-social-link">
+                <span>✉️</span>
+              </a>
+            </div>
           </div>
+        </div>
+        <hr className="contact-footer-divider" />
+        <div className="contact-footer-copyright">
+          <p>&copy; {new Date().getFullYear()} Tuba Sarıoğlu Busun. All rights reserved.</p>
         </div>
       </footer>
     </div>

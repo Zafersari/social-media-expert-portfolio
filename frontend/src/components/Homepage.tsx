@@ -8,12 +8,12 @@ function Homepage() {
     <div className="homepage-container">
       {/* Navigation */}
       <nav className="homepage-nav">
-        <div className="nav-logo" ><img src="logo.png" alt="Website Logo" /></div>
+        <div className="nav-logo" onClick={() => navigate('')}><img src="logo.png" alt="Website Logo" /></div>
         <div className="nav-menu">
-          <a href="#hakkimda" className="nav-link">HAKKIMDA</a>
-          <a href="#hizmetlerimiz" className="nav-link">HIZMETLERIMIZ</a>
-          <a href="#blog" className="nav-link">BLOG</a>
-          <a href="#iletisim" className="nav-link">ILETISIM</a>
+          <a className="nav-link" onClick={() => navigate('/aboutme')}>HAKKIMDA</a>
+          <a className="nav-link" onClick={() => navigate('/services')}>HIZMETLERIMIZ</a>
+          <a className="nav-link" onClick={() => navigate('/blog')}>BLOG</a>
+          <a className="nav-link" onClick={() => navigate('/contact')}>ILETISIM</a>
         </div>
       </nav>
 
@@ -30,15 +30,12 @@ function Homepage() {
           {/* Right Side - Content */}
           <div className="hero-content-side">
             <h1 className="hero-name">Tuba Sarıoğlu Busun</h1>
-            <p className="hero-title">SOCIAL MEDIA EXPERT</p>
+            <p className="hero-title">SOSYAL MEDYA UZMANI</p>
 
             {/* Location */}
             <div className="hero-location">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                <circle cx="12" cy="10" r="3"/>
-              </svg>
-              <span>ISTANBUL</span>
+              <span>📍</span>
+              <span>DENIZLI</span>
             </div>
 
             {/* Social Icons */}
@@ -57,28 +54,29 @@ function Homepage() {
             {/* Stats */}
             <div className="hero-stats">
               <div className="stat-item">
-                <div className="stat-number">500+</div>
-                <div className="stat-label">Happy Clients</div>
+                <div className="stat-number">50+</div>
+                <div className="stat-label">Mutlu Müşteriler</div>
               </div>
               <div className="stat-item">
                 <div className="stat-number">5+</div>
-                <div className="stat-label">Years Experience</div>
+                <div className="stat-label">Yıllık Tecrübe</div>
               </div>
               <div className="stat-item">
-                <div className="stat-number">1000+</div>
-                <div className="stat-label">Projects</div>
+                <div className="stat-number">10+</div>
+                <div className="stat-label">Projeler</div>
               </div>
               <div className="stat-item">
                 <div className="stat-number">95%</div>
-                <div className="stat-label">Success Rate</div>
+                <div className="stat-label">Başarı Oranı</div>
               </div>
             </div>
 
             {/* Description */}
             <p className="hero-description">
-              Helping brands grow their online presence and connect with their audience
-              through strategic social media marketing and engaging content.
-            </p>
+              Markaların dijital dünyada güçlenmesine, hedef kitleleriyle anlamlı 
+              bağlar kurmasına ve sosyal medyada fark yaratmasına yardımcı oluyorum. 
+              Stratejik içerikler ve yaratıcı kampanyalarla markanızı bir adım öne taşıyorum.
+            </p>  
 
             {/* Buttons */}
             <div className="hero-buttons">
@@ -86,7 +84,7 @@ function Homepage() {
                 İletişime Geçin
               </button>
               <button className="btn-secondary" onClick={() => navigate('/portfolio')}>
-                View Portfolio
+                Portfolyo
               </button>
             </div>
           </div>
@@ -95,31 +93,31 @@ function Homepage() {
 
       {/* Services Section */}
       <section id="services" className="services-section">
-        <h2 className="services-heading">Services</h2>
-        <p className="services-subheading">Professional solutions tailored to your needs</p>
+        <h2 className="services-heading">Hizmetlerimiz</h2>
+        <p className="services-subheading">İhtiyaçlarınıza özel profesyonel çözümler</p>
         
         <div className="services-grid">
           <div className="service-card">
             <div className="service-icon">📈</div>
-            <h3 className="service-title">Strategy Development</h3>
+            <h3 className="service-title">Strateji Geliştirme</h3>
             <p className="service-description">
-              Creating comprehensive social media strategies tailored to your brand's goals.
+              Markanızın hedeflerine özel, kapsamlı sosyal medya stratejileri oluşturuyorum.
             </p>
           </div>
 
           <div className="service-card">
             <div className="service-icon">✍️</div>
-            <h3 className="service-title">Content Creation</h3>
+            <h3 className="service-title">İçerik Üretimi</h3>
             <p className="service-description">
-              Engaging posts, stories, and campaigns that resonate with your audience.
+              Hedef kitlenizle rezonans kuran, etkileyici gönderiler, hikayeler ve kampanyalar.
             </p>
           </div>
 
           <div className="service-card">
             <div className="service-icon">📊</div>
-            <h3 className="service-title">Analytics & Growth</h3>
+            <h3 className="service-title">Analiz ve Büyüme</h3>
             <p className="service-description">
-              Data-driven insights and optimization to maximize your social media ROI.
+              Veri odaklı içgörüler ve optimizasyon ile sosyal medya getirinizi maksimize ediyorum.
             </p>
           </div>
         </div>
@@ -133,11 +131,11 @@ function Homepage() {
             <p className="footer-role">Social Media Expert</p>
             <div className="footer-location">
               <span>📍</span>
-              <span>Istanbul, Turkey</span>
+              <span>Denizli, Turkey</span>
             </div>
           </div>
           <div className="footer-right">
-            <h5 className="footer-heading">Connect With Me</h5>
+            <h5 className="footer-heading">Benimle İletişime Geçin</h5>
             <div className="footer-social">
               <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" className="footer-social-link">
                 <span>📱</span>
