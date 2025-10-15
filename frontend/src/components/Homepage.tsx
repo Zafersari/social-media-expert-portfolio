@@ -96,26 +96,23 @@ function Homepage() {
 
       {/* Stats Section */}
       <section className="stats-section">
+        <span className="stats-section-span"> Verdiğim Hizmetler </span>
         <div className="stats-container">
           <div className="stat-card">
-            <div className="stat-icon">👥</div>
-            <h3 className="stat-title">TASBY CONEBBGE</h3>
-            {/*<p className="stat-number"></p>*/}
+            <div className="stat-icon">📱</div>
+            <h3 className="stat-title">SOSYAL MEDYA YÖNETİMİ</h3>
           </div>
           <div className="stat-card">
-            <div className="stat-icon">✂️</div>
-            <h3 className="stat-title">LEVAINE CAŞIN</h3>
-            {/*<p className="stat-number"></p>*/}
-          </div>
-          <div className="stat-card">
-            <div className="stat-icon">📄</div>
-            <h3 className="stat-title">SERVICES</h3>
-            {/*<p className="stat-number"></p>*/}
+            <div className="stat-icon">✍️</div>
+            <h3 className="stat-title">İÇERİK ÜRETİMİ</h3>
           </div>
           <div className="stat-card">
             <div className="stat-icon">📊</div>
-            <h3 className="stat-title">BAŞARILI PROJELER</h3>
-            {/*<p className="stat-number"></p>*/}
+            <h3 className="stat-title">ANALİZ & RAPORLAMA</h3>
+          </div>
+          <div className="stat-card">
+            <div className="stat-icon">🎯</div>
+            <h3 className="stat-title">REKLAM KAMPANYALARI</h3>
           </div>
         </div>
       </section>
@@ -166,27 +163,83 @@ function Homepage() {
         </button>
       </section>
 
-      {/* Footer */}
-      <footer className="luxury-footer">
-        <div className="footer-content">
-          <div className="footer-left">
-            <p className="footer-text">
-              Plunnering usuant of apst<br />
-              Duvgert Cull & Tave
-            </p>
-          </div>
-          <div className="footer-right">
-            <div className="footer-social">
-              <a href="#" className="footer-icon">f</a>
-              <a href="#" className="footer-icon">🐦</a>
-              <a href="#" className="footer-icon">📷</a>
-              <a href="#" className="footer-icon">📺</a>
-              <a href="#" className="footer-icon">in</a>
-            </div>
-            <p className="footer-copyright">Wannaola</p>
+    {/* Footer */}
+    <footer className="luxury-footer">
+      <div className="footer-main-content">
+        {/* Left Side - About me */}
+        <div className="footer-about">
+          <h4 className="footer-brand">Tuba Sarıoğlu Busun</h4>
+          <p className="footer-role">Social Media Expert & Marka Danışmanı</p>
+          <p className="footer-description">
+            Markaların dijital dünyada güçlenmesine yardımcı oluyor, 
+            stratejik içerikler ve yaratıcı kampanyalarla fark yaratıyorum.
+          </p>
+          <div className="footer-location">
+            <span className="location-icon">📍</span>
+            <span>Denizli, Türkiye</span>
           </div>
         </div>
-      </footer>
+
+        {/* Middle - Quick Links */}
+        <div className="footer-links">
+          <h4 className="footer-heading">Hızlı Linkler</h4>
+          <ul className="footer-link-list">
+            <li><a onClick={() => navigate('/')}>Ana Sayfa</a></li>
+            <li><a onClick={() => navigate('/aboutme')}>Hakkımda</a></li>
+            <li><a onClick={() => navigate('/services')}>Hizmetlerimiz</a></li>
+            {/*<li><a onClick={() => navigate('/portfolio')}>Portfolio</a></li>*/}
+            <li><a onClick={() => navigate('/blog')}>Blog</a></li>
+            <li><a onClick={() => navigate('/contact')}>İletişim</a></li>
+          </ul>
+        </div>
+
+        {/* Right Side - Contact */}
+        <div className="footer-contact">
+          <h4 className="footer-heading">İletişim</h4>
+          <div className="footer-contact-info">
+            <p className="footer-contact-item">
+              <span className="contact-icon">📧</span>
+              <a href="mailto:testoglutest05@gmail.com">testoglutest05@gmail.com</a>
+            </p>
+            <p className="footer-contact-item">
+              <span className="contact-icon">📷</span>
+              <a href="https://instagram.com/" target="_blank">Instagram</a>
+            </p>
+          </div>
+          {/*
+          <div className="footer-social">
+            <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" className="footer-social-link">
+              <span>📱</span>
+            </a>
+            <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" className="footer-social-link">
+              <span>📷</span>
+            </a>
+            <a href="mailto:testoglutest05@gmail.com" className="footer-social-link">
+              <span>✉️</span>
+            </a>
+            <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" className="footer-social-link">
+              <span>💼</span>
+            </a>
+          </div>
+          */}
+        </div>
+      </div>
+
+      {/* Bottom - Copyright */}
+      <div className="footer-bottom">
+        <hr className="footer-divider" />
+        <div className="footer-bottom-content">
+          <p className="footer-copyright">
+            &copy; {new Date().getFullYear()} Tuba Busun Sarıoğlu . Tüm hakları saklıdır.
+          </p>
+          <div className="footer-bottom-links">
+            <a href="#" className="footer-bottom-link">Gizlilik Politikası</a>
+            <span className="footer-separator">|</span>
+            <a href="#" className="footer-bottom-link">Kullanım Şartları</a>
+          </div>
+        </div>
+      </div>
+    </footer>
     </div>
   );
 }
