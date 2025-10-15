@@ -5,153 +5,186 @@ function Homepage() {
   const navigate = useNavigate();
 
   return (
-    <div className="homepage-container">
+    <div className="luxury-homepage">
       {/* Navigation */}
-      <nav className="homepage-nav">
-        <div className="nav-logo" onClick={() => navigate('')}><img src="logo.png" alt="Website Logo" /></div>
-        <div className="nav-menu">
-          <a className="nav-link" onClick={() => navigate('/aboutme')}>HAKKIMDA</a>
-          <a className="nav-link" onClick={() => navigate('/services')}>HIZMETLERIMIZ</a>
-          <a className="nav-link" onClick={() => navigate('/blog')}>BLOG</a>
-          <a className="nav-link" onClick={() => navigate('/contact')}>ILETISIM</a>
+      <nav className="luxury-nav">
+        <div className="nav-brand">
+          <img src="/logo.png" alt="TSB Logo" className="nav-logo" />
+        </div>
+        <div className="nav-links">
+            <a className="nav-link" onClick={() => navigate('/aboutme')}>HAKKIMDA</a>
+            <a className="nav-link" onClick={() => navigate('/services')}>HIZMETLERIMIZ</a>
+            <a className="nav-link" onClick={() => navigate('/blog')}>BLOG</a>
+            <a className="nav-link" onClick={() => navigate('/contact')}>ILETISIM</a>
         </div>
       </nav>
 
+      {/* Decorative circles */}
+      <div className="decorative-circle left-circle"></div>
+      <div className="decorative-circle right-circle"></div>
+      <div className="decorative-circle bottom-circle"></div>
+
       {/* Hero Section */}
-      <section className="hero-section">
-        <div className="hero-grid">
-          {/* Left Side - Image */}
-          <div className="hero-image-side">
-            <div className="hero-image-container">
-              <img src="/tuba_abla_3.jpg" alt="Tuba Sarıoğlu Busun" className="hero-image" />
+      <section className="hero-luxury">
+        <div className="hero-content-left">
+          <div className="hero-label">Tuba Busun Sarıoğlu</div>
+          <h1 className="hero-title">
+            Sosyal Medya Stratejisti & Marka Danışmanı
+          </h1>
+          
+          {/* Location 
+          <div className="hero-location">
+            <span className="location-icon">📍</span>
+            <span>Denizli, Türkiye</span>
+          </div>
+          */}
+          {/* Social Icons 
+          <div className="hero-social-main">
+            <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" className="social-circle">
+              <span>📱</span>
+            </a>
+            <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" className="social-circle">
+              <span>📷</span>
+            </a>
+            <a href="mailto:info@example.com" className="social-circle">
+              <span>✉️</span>
+            </a>
+          </div>
+          */}
+
+          {/* Description */}
+          <p className="hero-description">
+            Markaların dijital dünyada güçlenmesine, hedef kitleleriyle anlamlı 
+            bağlar kurmasına yardımcı oluyorum. Stratejik içerikler ve yaratıcı 
+            kampanyalarla markanızı bir adım öne taşıyorum.
+          </p>
+
+          {/* Mini Stats */}
+          <div className="hero-mini-stats">
+            <div className="mini-stat">
+              <div className="mini-stat-number">50+</div>
+              <div className="mini-stat-label">Proje</div>
+            </div>
+            <div className="mini-stat">
+              <div className="mini-stat-number">5+</div>
+              <div className="mini-stat-label">Yıl Deneyim</div>
+            </div>
+            <div className="mini-stat">
+              <div className="mini-stat-number">95%</div>
+              <div className="mini-stat-label">Başarı Oranı</div>
             </div>
           </div>
 
-          {/* Right Side - Content */}
-          <div className="hero-content-side">
-            <h1 className="hero-name">Tuba Sarıoğlu Busun</h1>
-            <p className="hero-title">SOSYAL MEDYA UZMANI</p>
+          {/* Buttons */}
+          <div className="hero-buttons">
+            <button className="hero-btn-primary" onClick={() => navigate('/contact')}>
+              <span className="btn-icon">💬</span> İletişime Geçin
+            </button>
+            <button className="hero-btn-secondary" onClick={() => navigate('/portfolio')}>
+              Portfolyo
+            </button>
+          </div>
+        </div>
 
-            {/* Location */}
-            <div className="hero-location">
-              <span>📍</span>
-              <span>DENIZLI</span>
-            </div>
+        <div className="hero-content-right">
+          <div className="hero-portrait">
+            <img src="/tuba_abla_3.jpg" alt="Portrait" className="portrait-img" />
+          </div>
+          {/*<div className="vertical-text">Social Media Expert</div>*/}
+        </div>
+      </section>
 
-            {/* Social Icons */}
-            <div className="hero-social">
-              <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" className="social-icon" title="WhatsApp">
-                WA
-              </a>
-              <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" className="social-icon" title="Instagram">
-                IG
-              </a>
-              <a href="mailto:contact@example.com" className="social-icon" title="Email">
-                EM
-              </a>
-            </div>
-
-            {/* Stats */}
-            <div className="hero-stats">
-              <div className="stat-item">
-                <div className="stat-number">50+</div>
-                <div className="stat-label">Mutlu Müşteriler</div>
-              </div>
-              <div className="stat-item">
-                <div className="stat-number">5+</div>
-                <div className="stat-label">Yıllık Tecrübe</div>
-              </div>
-              <div className="stat-item">
-                <div className="stat-number">10+</div>
-                <div className="stat-label">Projeler</div>
-              </div>
-              <div className="stat-item">
-                <div className="stat-number">95%</div>
-                <div className="stat-label">Başarı Oranı</div>
-              </div>
-            </div>
-
-            {/* Description */}
-            <p className="hero-description">
-              Markaların dijital dünyada güçlenmesine, hedef kitleleriyle anlamlı 
-              bağlar kurmasına ve sosyal medyada fark yaratmasına yardımcı oluyorum. 
-              Stratejik içerikler ve yaratıcı kampanyalarla markanızı bir adım öne taşıyorum.
-            </p>  
-
-            {/* Buttons */}
-            <div className="hero-buttons">
-              <button className="btn-primary" onClick={() => navigate('/contact')}>
-                İletişime Geçin
-              </button>
-              <button className="btn-secondary" onClick={() => navigate('/portfolio')}>
-                Portfolyo
-              </button>
-            </div>
+      {/* Stats Section */}
+      <section className="stats-section">
+        <div className="stats-container">
+          <div className="stat-card">
+            <div className="stat-icon">👥</div>
+            <h3 className="stat-title">TASBY CONEBBGE</h3>
+            {/*<p className="stat-number"></p>*/}
+          </div>
+          <div className="stat-card">
+            <div className="stat-icon">✂️</div>
+            <h3 className="stat-title">LEVAINE CAŞIN</h3>
+            {/*<p className="stat-number"></p>*/}
+          </div>
+          <div className="stat-card">
+            <div className="stat-icon">📄</div>
+            <h3 className="stat-title">SERVICES</h3>
+            {/*<p className="stat-number"></p>*/}
+          </div>
+          <div className="stat-card">
+            <div className="stat-icon">📊</div>
+            <h3 className="stat-title">BAŞARILI PROJELER</h3>
+            {/*<p className="stat-number"></p>*/}
           </div>
         </div>
       </section>
 
-      {/* Services Section */}
-      <section id="services" className="services-section">
-        <h2 className="services-heading">Hizmetlerimiz</h2>
-        <p className="services-subheading">İhtiyaçlarınıza özel profesyonel çözümler</p>
+      {/* Quote Section */}
+      <section className="quote-section">
+        <div className="quote-container">
+          <h2 className="quote-text">"Veriyi duyguyla buluşturuyorum"</h2>
+          <p className="quote-subtitle">
+            Sadece rakamlarla değil, hikayelerle bağlantı kurarak markaların dijital dünyada yankı uyandırmasını sağlıyorum.
+          </p>
+        </div>
+      </section>
+
+      {/* Clients Section */}
+      <section className="clients-section">
+        <div className="clients-header">
+          {/*<span className="clients-subtitle">Bana Güvenen Markalar</span>*/}
+          <h2 className="clients-main-title">Birlikte Çalıştığım Markalar</h2>
+        </div>
         
-        <div className="services-grid">
-          <div className="service-card">
-            <div className="service-icon">📈</div>
-            <h3 className="service-title">Strateji Geliştirme</h3>
-            <p className="service-description">
-              Markanızın hedeflerine özel, kapsamlı sosyal medya stratejileri oluşturuyorum.
-            </p>
+        <div className="clients-showcase">
+          <div className="client-item">
+            <div className="client-logo-box">
+              <img src="/client1.png" alt="Client 1" className="client-logo-img" />
+            </div>
+            <p className="client-name">SCK Akademi</p>
           </div>
-
-          <div className="service-card">
-            <div className="service-icon">✍️</div>
-            <h3 className="service-title">İçerik Üretimi</h3>
-            <p className="service-description">
-              Hedef kitlenizle rezonans kuran, etkileyici gönderiler, hikayeler ve kampanyalar.
-            </p>
+          
+          <div className="client-item">
+            <div className="client-logo-box">
+              <img src="/client2.png" alt="Client 2" className="client-logo-img" />
+            </div>
+            <p className="client-name">Arabica Coffee-House</p>
           </div>
-
-          <div className="service-card">
-            <div className="service-icon">📊</div>
-            <h3 className="service-title">Analiz ve Büyüme</h3>
-            <p className="service-description">
-              Veri odaklı içgörüler ve optimizasyon ile sosyal medya getirinizi maksimize ediyorum.
-            </p>
+          
+          <div className="client-item">
+            <div className="client-logo-box">
+              <img src="/client3.png" alt="Client 3" className="client-logo-img" />
+            </div>
+            <p className="client-name">Özgün Çocuklar</p>
           </div>
         </div>
+
+        <button className="view-more-btn" onClick={() => navigate('/portfolio')}>
+          Daha Fazlası
+          <span className="arrow-icon">→</span>
+        </button>
       </section>
 
       {/* Footer */}
-      <footer className="homepage-footer">
+      <footer className="luxury-footer">
         <div className="footer-content">
           <div className="footer-left">
-            <h5 className="footer-name">Tuba Sarıoğlu Busun</h5>
-            <p className="footer-role">Social Media Expert</p>
-            <div className="footer-location">
-              <span>📍</span>
-              <span>Denizli, Turkey</span>
-            </div>
+            <p className="footer-text">
+              Plunnering usuant of apst<br />
+              Duvgert Cull & Tave
+            </p>
           </div>
           <div className="footer-right">
-            <h5 className="footer-heading">Benimle İletişime Geçin</h5>
             <div className="footer-social">
-              <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" className="footer-social-link">
-                <span>📱</span>
-              </a>
-              <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" className="footer-social-link">
-                <span>📷</span>
-              </a>
-              <a href="mailto:contact@example.com" className="footer-social-link">
-                <span>✉️</span>
-              </a>
+              <a href="#" className="footer-icon">f</a>
+              <a href="#" className="footer-icon">🐦</a>
+              <a href="#" className="footer-icon">📷</a>
+              <a href="#" className="footer-icon">📺</a>
+              <a href="#" className="footer-icon">in</a>
             </div>
+            <p className="footer-copyright">Wannaola</p>
           </div>
-        </div>
-        <hr className="footer-divider" />
-        <div className="footer-copyright">
-          <p>&copy; {new Date().getFullYear()} Tuba Sarıoğlu Busun. All rights reserved.</p>
         </div>
       </footer>
     </div>

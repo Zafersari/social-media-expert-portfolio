@@ -50,10 +50,10 @@ function Contact() {
       <nav className="contact-nav">
         <div className="contact-nav-logo" onClick={() => navigate('/')}><img src="logo.png" alt="Website Logo" /></div>
         <div className="contact-nav-menu">
-          <a href="/#hakkimda" className="contact-nav-link">HAKKIMDA</a>
-          <a href="/#hizmetlerimiz" className="contact-nav-link">HIZMETLERIMIZ</a>
-          <a href="/#blog" className="contact-nav-link">BLOG</a>
-          <a href="/#iletisim" className="contact-nav-link">ILETISIM</a>
+          <a className="contact-nav-link" onClick={() => navigate('/aboutme')}>HAKKIMDA</a>
+          <a className="contact-nav-link" onClick={() => navigate('/services')}>HIZMETLERIMIZ</a>
+          <a className="contact-nav-link" onClick={() => navigate('/blog')}>BLOG</a>
+          <a className="contact-nav-link" onClick={() => navigate('/contact')}>ILETISIM</a>
         </div>
       </nav>
 

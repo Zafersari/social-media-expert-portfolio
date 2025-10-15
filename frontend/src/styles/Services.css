@@ -1,12 +1,12 @@
-/* Portfolio Container */
-.portfolio-container {
+/* Services Container */
+.services-container {
   min-height: 100vh;
   background: linear-gradient(135deg, #f5e6d3 0%, #e8d5c4 100%);
   font-family: system-ui, -apple-system, sans-serif;
 }
 
 /* Navigation */
-.portfolio-nav {
+.services-nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -21,7 +21,7 @@
   border-bottom: 1px solid rgba(44, 44, 44, 0.08);
 }
 
-.portfolio-nav-logo {
+.services-nav-logo {
   font-size: 25px;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -30,11 +30,11 @@
   cursor: pointer;
 }
 
-.portfolio-nav-logo:hover {
+.services-nav-logo:hover {
   opacity: 0.7;
 }
 
-.portfolio-nav-logo img {
+.services-nav-logo img {
   height: 100px;
   width: auto;
   object-fit: contain;
@@ -42,12 +42,12 @@
   cursor: pointer;
 }
 
-.portfolio-nav-menu {
+.services-nav-menu {
   display: flex;
   gap: 2.5rem;
 }
 
-.portfolio-nav-link {
+.services-nav-link {
   font-size: 20px;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -58,48 +58,47 @@
   cursor: pointer;
 }
 
-.portfolio-nav-link:hover {
+.services-nav-link:hover {
   opacity: 0.7;
   color: #2c2c2c;
 }
 
 /* Hero Section */
-.portfolio-hero {
-  min-height: 50vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 120px 4rem 4rem;
+.services-hero {
+  padding: 12rem 4rem 6rem;
   text-align: center;
-  background: linear-gradient(135deg, #e0d0c0 0%, #d4c4b4 100%);
+  background: linear-gradient(135deg, #f5e6d3 0%, #e8d5c4 100%);
 }
 
-.portfolio-hero-content {
+.services-hero-content {
   max-width: 800px;
+  margin: 0 auto;
 }
 
-.portfolio-hero-title {
+.services-hero-title {
   font-size: 4rem;
   font-weight: 300;
   color: #2c2c2c;
   margin-bottom: 1.5rem;
+  line-height: 1.2;
   font-family: Georgia, serif;
 }
 
-.portfolio-hero-subtitle {
+.services-hero-subtitle {
   font-size: 1.2rem;
   color: #4a4a4a;
   line-height: 1.6;
-  letter-spacing: 0.5px;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
-/* Case Studies Section */
-.case-studies-section {
-  padding: 6rem 4rem;
-  background: linear-gradient(135deg, #f5e6d3 0%, #e8d5c4 100%);
+/* Services Main Section */
+.services-main-section {
+  padding: 4rem 4rem 6rem;
+  background: linear-gradient(135deg, #e0d0c0 0%, #d4c4b4 100%);
 }
 
-.case-studies-grid {
+.services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 2.5rem;
@@ -107,143 +106,104 @@
   margin: 0 auto;
 }
 
-/* Case Study Card */
-.case-study-card {
-  background: rgba(255, 255, 255, 0.8);
+/* Service Detail Card */
+.service-detail-card {
+  padding: 3rem 2.5rem;
+  background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(10px);
   border-radius: 16px;
-  padding: 2.5rem;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   border: 1px solid rgba(255, 255, 255, 0.9);
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
 }
 
-.case-study-card:hover {
+.service-detail-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
 }
 
-/* Logo */
-.case-study-logo {
-  height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(44, 44, 44, 0.03);
-  border-radius: 12px;
-  padding: 1rem;
+.service-detail-icon {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
 }
 
-.case-study-logo img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-  filter: grayscale(30%);
-  transition: filter 0.3s ease;
-}
-
-.case-study-card:hover .case-study-logo img {
-  filter: grayscale(0%);
-}
-
-/* Company Name */
-.case-study-company {
-  font-size: 1.1rem;
+.service-detail-title {
+  font-size: 1.6rem;
   font-weight: 600;
   color: #2c2c2c;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin: 0;
-}
-
-/* Title */
-.case-study-title {
-  font-size: 1.5rem;
-  font-weight: 500;
-  color: #2c2c2c;
-  margin: 0;
-  line-height: 1.3;
-}
-
-/* Metric */
-.case-study-metric {
-  background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%);
-  border-radius: 12px;
-  padding: 1.5rem;
-  text-align: center;
-}
-
-.metric-number {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #d4b896;
-  margin-bottom: 0.5rem;
-}
-
-.metric-label {
-  font-size: 0.9rem;
-  color: #b0a090;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-/* Description */
-.case-study-description {
-  font-size: 1rem;
-  line-height: 1.7;
-  color: #4a4a4a;
-  margin: 0;
-}
-
-/* Strategies */
-.case-study-strategies {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-}
-
-.strategy-tag {
-  background: rgba(44, 44, 44, 0.08);
-  color: #2c2c2c;
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  font-size: 0.85rem;
-  font-weight: 500;
-  transition: all 0.3s ease;
-}
-
-.case-study-card:hover .strategy-tag {
-  background: rgba(44, 44, 44, 0.12);
-}
-
-/* CTA Section */
-.portfolio-cta-section {
-  padding: 6rem 4rem;
-  background: linear-gradient(135deg, #e0d0c0 0%, #d4c4b4 100%);
-  text-align: center;
-}
-
-.portfolio-cta-title {
-  font-size: 2.5rem;
-  font-weight: 300;
-  color: #2c2c2c;
   margin-bottom: 1rem;
+  text-align: center;
   font-family: Georgia, serif;
 }
 
-.portfolio-cta-subtitle {
-  font-size: 1.1rem;
+.service-detail-description {
+  font-size: 1rem;
+  line-height: 1.7;
   color: #4a4a4a;
-  margin-bottom: 2.5rem;
-  letter-spacing: 0.5px;
+  margin-bottom: 2rem;
+  text-align: center;
 }
 
-.portfolio-cta-button {
-  background-color: #2c2c2c;
+/* Service Features List */
+.service-features-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.service-feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.95rem;
+  color: #4a4a4a;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.service-feature-item:last-child {
+  margin-bottom: 0;
+}
+
+.feature-check {
+  color: #2c2c2c;
+  font-weight: 700;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+/* CTA Section */
+.services-cta-section {
+  padding: 6rem 4rem;
+  background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%);
+  text-align: center;
+}
+
+.services-cta-content {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.services-cta-title {
+  font-size: 2.5rem;
+  font-weight: 300;
   color: #d4b896;
+  margin-bottom: 1.5rem;
+  font-family: Georgia, serif;
+}
+
+.services-cta-description {
+  font-size: 1.1rem;
+  color: #b0a090;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+}
+
+.services-cta-button {
+  background-color: #d4b896;
+  color: #2c2c2c;
   border: none;
   padding: 1.2rem 3rem;
   font-weight: 600;
@@ -251,51 +211,53 @@
   font-size: 1.1rem;
   cursor: pointer;
   transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-.portfolio-cta-button:hover {
-  background-color: #1a1a1a;
-  transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+.services-cta-button:hover {
+  background-color: #e8d5c4;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(212, 184, 150, 0.3);
 }
 
 /* Footer */
-.portfolio-footer {
+.services-footer {
   padding: 4rem 4rem 2rem;
   background-color: #2c2c2c;
   color: #d4b896;
 }
 
-.portfolio-footer-content {
+.services-footer-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 3rem;
   margin-bottom: 2rem;
 }
 
-.portfolio-footer-left {
+.services-footer-left {
   text-align: left;
 }
 
-.portfolio-footer-right {
+.services-footer-right {
   text-align: right;
 }
 
-.footer-name {
+.services-footer-name {
   font-size: 1.3rem;
   font-weight: 500;
   color: #d4b896;
   margin-bottom: 0.5rem;
 }
 
-.footer-role {
+.services-footer-role {
   font-size: 0.9rem;
   color: #b0a090;
   margin-bottom: 1rem;
   letter-spacing: 0.5px;
 }
 
-.footer-location {
+.services-footer-location {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -303,20 +265,20 @@
   color: #b0a090;
 }
 
-.footer-heading {
+.services-footer-heading {
   font-size: 1.1rem;
   font-weight: 500;
   color: #d4b896;
   margin-bottom: 1rem;
 }
 
-.footer-social {
+.services-footer-social {
   display: flex;
   gap: 1rem;
   justify-content: flex-end;
 }
 
-.footer-social-link {
+.services-footer-social-link {
   font-size: 1.5rem;
   width: 45px;
   height: 45px;
@@ -329,22 +291,22 @@
   transition: all 0.3s ease;
 }
 
-.footer-social-link:hover {
+.services-footer-social-link:hover {
   background-color: rgba(212, 184, 150, 0.2);
   transform: scale(1.1);
 }
 
-.footer-divider {
+.services-footer-divider {
   border: none;
   border-top: 1px solid rgba(212, 184, 150, 0.2);
   margin: 2rem 0;
 }
 
-.footer-copyright {
+.services-footer-copyright {
   text-align: center;
 }
 
-.footer-copyright p {
+.services-footer-copyright p {
   font-size: 0.85rem;
   color: #b0a090;
   margin: 0;
@@ -352,106 +314,115 @@
 }
 
 /* Responsive Design */
+@media (max-width: 1024px) {
+  .services-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+
+  .services-hero-title {
+    font-size: 3rem;
+  }
+}
+
 @media (max-width: 768px) {
-  .portfolio-nav {
+  .services-nav {
     padding: 1.5rem 2rem;
     flex-direction: column;
     gap: 1rem;
   }
 
-  .portfolio-nav-logo img {
+  .services-nav-logo img {
     height: 70px;
     margin: -15px 0;
   }
 
-  .portfolio-nav-menu {
+  .services-nav-menu {
     gap: 1.5rem;
   }
 
-  .portfolio-nav-link {
+  .services-nav-link {
     font-size: 16px;
   }
 
-  .portfolio-hero {
-    padding: 100px 2rem 3rem;
-    min-height: 40vh;
+  .services-hero {
+    padding: 10rem 2rem 4rem;
   }
 
-  .portfolio-hero-title {
+  .services-hero-title {
     font-size: 2.5rem;
   }
 
-  .portfolio-hero-subtitle {
+  .services-hero-subtitle {
     font-size: 1rem;
   }
 
-  .case-studies-section {
-    padding: 4rem 2rem;
+  .services-main-section {
+    padding: 3rem 2rem 4rem;
   }
 
-  .case-studies-grid {
+  .services-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
 
-  .portfolio-cta-section {
+  .services-cta-section {
     padding: 4rem 2rem;
   }
 
-  .portfolio-cta-title {
+  .services-cta-title {
     font-size: 2rem;
   }
 
-  .portfolio-footer-content {
+  .services-footer-content {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
 
-  .portfolio-footer-right {
+  .services-footer-right {
     text-align: left;
   }
 
-  .footer-social {
+  .services-footer-social {
     justify-content: flex-start;
   }
 }
 
 @media (max-width: 480px) {
-  .portfolio-nav-menu {
+  .services-nav-menu {
     gap: 1rem;
     flex-wrap: wrap;
     justify-content: center;
   }
 
-  .portfolio-nav-link {
+  .services-nav-link {
     font-size: 14px;
   }
 
-  .portfolio-hero-title {
+  .services-hero-title {
     font-size: 2rem;
   }
 
-  .portfolio-hero-subtitle {
-    font-size: 0.9rem;
+  .services-hero-subtitle {
+    font-size: 0.95rem;
   }
 
-  .case-study-card {
-    padding: 2rem;
+  .service-detail-card {
+    padding: 2rem 1.5rem;
   }
 
-  .case-study-title {
-    font-size: 1.3rem;
+  .service-detail-title {
+    font-size: 1.4rem;
   }
 
-  .metric-number {
-    font-size: 2rem;
-  }
-
-  .portfolio-cta-title {
+  .services-cta-title {
     font-size: 1.8rem;
   }
 
-  .portfolio-cta-button {
+  .services-cta-description {
+    font-size: 1rem;
+  }
+
+  .services-cta-button {
     padding: 1rem 2rem;
     font-size: 1rem;
   }
