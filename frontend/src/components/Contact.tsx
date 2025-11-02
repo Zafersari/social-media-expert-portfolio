@@ -48,106 +48,216 @@ function Contact() {
     <div className="contact-container">
       {/* Navigation */}
       <nav className="contact-nav">
-        <div className="contact-nav-logo" onClick={() => navigate('/')}><img src="logo.png" alt="Website Logo" /></div>
-        <div className="contact-nav-menu">
+        <div className="contact-nav-brand">
+          <img
+            src="/logo.png"
+            alt="Website Logo"
+            className="contact-nav-logo"
+            onClick={() => navigate('/')}
+          />
+        </div>
+        <div className="contact-nav-links">
+          <a className="contact-nav-link" onClick={() => navigate('/')}>ANA SAYFA</a>
           <a className="contact-nav-link" onClick={() => navigate('/aboutme')}>HAKKIMDA</a>
           <a className="contact-nav-link" onClick={() => navigate('/services')}>HIZMETLERIMIZ</a>
           <a className="contact-nav-link" onClick={() => navigate('/blog')}>BLOG</a>
-          <a className="contact-nav-link" onClick={() => navigate('/contact')}>ILETISIM</a>
         </div>
       </nav>
 
+      {/* Decorative circles */}
+      <div className="contact-decorative-circle contact-left-circle"></div>
+      <div className="contact-decorative-circle contact-right-circle"></div>
+
+      {/* Hero Section */}
+      <section className="contact-hero">
+        <div className="contact-hero-content">
+          <span className="contact-hero-subtitle">İletişim</span>
+          <h1 className="contact-hero-title">
+            Birlikte Çalışalım
+          </h1>
+          <p className="contact-hero-description">
+            Projeniz hakkında konuşmak veya sorularınızı yanıtlamak için buradayım.
+            Mesajınızı bırakın, size en kısa sürede dönüş yapalım.
+          </p>
+        </div>
+      </section>
+
       {/* Contact Form Section */}
       <section className="contact-form-section">
-        <h2 className="contact-heading">İletişime Geçin</h2>
-        <p className="contact-subheading">Mesajınızı bırakın, size en kısa sürede dönüş yapalım</p>
+        <div className="contact-form-wrapper">
+          {/* Contact Info Side */}
+          <div className="contact-info-side">
+            <span className="contact-info-label">Benimle İletişime Geçin</span>
+            <h2 className="contact-info-title">
+              Hemen Başlayalım
+            </h2>
+            <p className="contact-info-text">
+              Projeniz için sosyal medya stratejisi, içerik üretimi veya marka danışmanlığı
+              konularında yardıma mı ihtiyacınız var? Size yardımcı olmaktan mutluluk duyarım.
+            </p>
 
-        <div className="contact-form-container">
-          <form onSubmit={handleSubmit} className="contact-form">
-            <div>
-              <input
-                type="text"
-                name="name"
-                placeholder="Adınız"
-                value={formData.name}
-                onChange={handleChange}
-                required
-                className="contact-input"
-              />
+            <div className="contact-info-items">
+              <div className="contact-info-item">
+                <div className="contact-info-icon">📧</div>
+                <div className="contact-info-details">
+                  <div className="contact-info-item-label">Email</div>
+                  <div className="contact-info-item-value">
+                    <a href="mailto:testoglutest05@gmail.com">testoglutest05@gmail.com</a>
+                  </div>
+                </div>
+              </div>
+
+              <div className="contact-info-item">
+                <div className="contact-info-icon">📍</div>
+                <div className="contact-info-details">
+                  <div className="contact-info-item-label">Konum</div>
+                  <div className="contact-info-item-value">Denizli, Türkiye</div>
+                </div>
+              </div>
+
+              <div className="contact-info-item">
+                <div className="contact-info-icon">⏰</div>
+                <div className="contact-info-details">
+                  <div className="contact-info-item-label">Çalışma Saatleri</div>
+                  <div className="contact-info-item-value">Pzt - Cum, 09:00 - 18:00</div>
+                </div>
+              </div>
             </div>
 
-            <div>
-              <input
-                type="email"
-                name="email"
-                placeholder="Email Adresiniz"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                className="contact-input"
-              />
+            <div className="contact-social-links">
+              <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" className="contact-social-link">
+                <span>📱</span>
+              </a>
+              <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" className="contact-social-link">
+                <span>📷</span>
+              </a>
+              <a href="mailto:testoglutest05@gmail.com" className="contact-social-link">
+                <span>✉️</span>
+              </a>
             </div>
+          </div>
 
-            <div>
-              <input
-                type="text"
-                name="subject"
-                placeholder="Konu"
-                value={formData.subject}
-                onChange={handleChange}
-                required
-                className="contact-input"
-              />
-            </div>
+          {/* Form Side */}
+          <div className="contact-form-side">
+            <form onSubmit={handleSubmit} className="contact-form">
+              <div className="contact-form-group">
+                <label className="contact-form-label">Adınız *</label>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Adınızı girin"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  className="contact-input"
+                />
+              </div>
 
-            <div>
-              <textarea
-                name="message"
-                placeholder="Mesajınız"
-                value={formData.message}
-                onChange={handleChange}
-                required
-                rows={6}
-                className="contact-textarea"
-              />
-            </div>
+              <div className="contact-form-group">
+                <label className="contact-form-label">Email *</label>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email adresinizi girin"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  className="contact-input"
+                />
+              </div>
 
-            <button type="submit" className="contact-submit-btn">
-              Gönder
-            </button>
-          </form>
+              <div className="contact-form-group">
+                <label className="contact-form-label">Konu *</label>
+                <input
+                  type="text"
+                  name="subject"
+                  placeholder="Mesajınızın konusu"
+                  value={formData.subject}
+                  onChange={handleChange}
+                  required
+                  className="contact-input"
+                />
+              </div>
+
+              <div className="contact-form-group">
+                <label className="contact-form-label">Mesajınız *</label>
+                <textarea
+                  name="message"
+                  placeholder="Mesajınızı yazın..."
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                  rows={6}
+                  className="contact-textarea"
+                />
+              </div>
+
+              <button type="submit" className="contact-submit-btn">
+                Mesaj Gönder
+              </button>
+            </form>
+          </div>
         </div>
       </section>
 
       {/* Footer */}
       <footer className="contact-footer">
-        <div className="contact-footer-content">
-          <div className="contact-footer-left">
-            <h5 className="contact-footer-name">Tuba Sarıoğlu Busun</h5>
-            <p className="contact-footer-role">Social Media Expert</p>
+        <div className="contact-footer-main-content">
+          {/* Left Side - About */}
+          <div className="contact-footer-about">
+            <h4 className="contact-footer-brand">Tuba Sarıoğlu Busun</h4>
+            <p className="contact-footer-role">Social Media Expert & Marka Danışmanı</p>
+            <p className="contact-footer-description">
+              Markaların dijital dünyada güçlenmesine yardımcı oluyor,
+              stratejik içerikler ve yaratıcı kampanyalarla fark yaratıyorum.
+            </p>
             <div className="contact-footer-location">
-              <span>📍</span>
-              <span>Denizli, Turkey</span>
+              <span className="location-icon">📍</span>
+              <span>Denizli, Türkiye</span>
             </div>
           </div>
-          <div className="contact-footer-right">
-            <h5 className="contact-footer-heading">Benimle İletişime Geçin</h5>
-            <div className="contact-footer-social">
-              <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" className="contact-footer-social-link">
-                <span>📱</span>
-              </a>
-              <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" className="contact-footer-social-link">
-                <span>📷</span>
-              </a>
-              <a href="mailto:zafer_sari_20@hotmail.com" className="contact-footer-social-link">
-                <span>✉️</span>
-              </a>
+
+          {/* Middle - Quick Links */}
+          <div className="contact-footer-links">
+            <h4 className="contact-footer-heading">Hızlı Linkler</h4>
+            <ul className="contact-footer-link-list">
+              <li><a onClick={() => navigate('/')}>Ana Sayfa</a></li>
+              <li><a onClick={() => navigate('/aboutme')}>Hakkımda</a></li>
+              <li><a onClick={() => navigate('/services')}>Hizmetlerimiz</a></li>
+              <li><a onClick={() => navigate('/blog')}>Blog</a></li>
+              <li><a onClick={() => navigate('/contact')}>İletişim</a></li>
+            </ul>
+          </div>
+
+          {/* Right Side - Contact */}
+          <div className="contact-footer-contact">
+            <h4 className="contact-footer-heading">İletişim</h4>
+            <div className="contact-footer-contact-info">
+              <p className="contact-footer-contact-item">
+                <span className="contact-contact-icon">📧</span>
+                <a href="mailto:testoglutest05@gmail.com">testoglutest05@gmail.com</a>
+              </p>
+              <p className="contact-footer-contact-item">
+                <span className="contact-contact-icon">📷</span>
+                <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a>
+              </p>
             </div>
           </div>
         </div>
-        <hr className="contact-footer-divider" />
-        <div className="contact-footer-copyright">
-          <p>&copy; {new Date().getFullYear()} Tuba Sarıoğlu Busun. All rights reserved.</p>
+
+        {/* Bottom - Copyright */}
+        <div className="contact-footer-bottom">
+          <hr className="contact-footer-divider" />
+          <div className="contact-footer-bottom-content">
+            <p className="contact-footer-copyright">
+              &copy; {new Date().getFullYear()} Tuba Sarıoğlu Busun. Tüm hakları saklıdır.
+            </p>
+            <div className="contact-footer-bottom-links">
+              <a href="#" className="contact-footer-bottom-link">Gizlilik Politikası</a>
+              <span className="contact-footer-separator">|</span>
+              <a href="#" className="contact-footer-bottom-link">Kullanım Şartları</a>
+            </div>
+          </div>
         </div>
       </footer>
     </div>

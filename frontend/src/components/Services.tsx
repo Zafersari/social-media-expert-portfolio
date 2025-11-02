@@ -73,33 +73,74 @@ function Services() {
     }
   ];
 
+  const processSteps = [
+    {
+      number: "1",
+      title: "Keşif & Analiz",
+      description: "Markanızı, hedeflerinizi ve mevcut durumunuzu derinlemesine analiz ediyorum."
+    },
+    {
+      number: "2",
+      title: "Strateji Oluşturma",
+      description: "Size özel, detaylı bir sosyal medya stratejisi ve yol haritası çıkarıyorum."
+    },
+    {
+      number: "3",
+      title: "Uygulama",
+      description: "Planlanan stratejileri hayata geçiriyor, içerikler üretiyorum."
+    },
+    {
+      number: "4",
+      title: "Optimizasyon",
+      description: "Sürekli veri analizi ile performansı ölçüyor ve iyileştirmeler yapıyorum."
+    }
+  ];
+
   return (
     <div className="services-container">
       {/* Navigation */}
       <nav className="services-nav">
-        <div className="services-nav-logo" onClick={() => navigate('/')}>
-          <img src="/logo.png" alt="Website Logo" />
+        <div className="services-nav-brand">
+          <img
+            src="/logo.png"
+            alt="Website Logo"
+            className="services-nav-logo"
+            onClick={() => navigate('/')}
+          />
         </div>
-        <div className="services-nav-menu">
+        <div className="services-nav-links">
+          <a className="services-nav-link" onClick={() => navigate('/')}>ANA SAYFA</a>
           <a className="services-nav-link" onClick={() => navigate('/aboutme')}>HAKKIMDA</a>
-          <a className="services-nav-link" onClick={() => navigate('/services')}>HIZMETLERIMIZ</a>
           <a className="services-nav-link" onClick={() => navigate('/blog')}>BLOG</a>
           <a className="services-nav-link" onClick={() => navigate('/contact')}>ILETISIM</a>
         </div>
       </nav>
 
+      {/* Decorative circles */}
+      <div className="services-decorative-circle services-left-circle"></div>
+      <div className="services-decorative-circle services-right-circle"></div>
+      <div className="services-decorative-circle services-bottom-circle"></div>
+
       {/* Hero Section */}
       <section className="services-hero">
         <div className="services-hero-content">
-          <h1 className="services-hero-title">Hizmetlerimiz</h1>
-          <p className="services-hero-subtitle">
-            Markanızı dijital dünyada bir adım öne taşıyacak profesyonel sosyal medya çözümleri
+          <span className="services-hero-subtitle">Hizmetlerimiz</span>
+          <h1 className="services-hero-title">
+            Markanızı Dijital Dünyada Güçlendirin
+          </h1>
+          <p className="services-hero-description">
+            Profesyonel sosyal medya çözümleri ile markanızı bir adım öne taşıyacak,
+            hedef kitlenizle güçlü bağlar kurmanızı sağlayacak hizmetler sunuyorum.
           </p>
         </div>
       </section>
 
       {/* Services Grid Section */}
       <section className="services-main-section">
+        <div className="services-section-header">
+          <span className="services-section-label">Neler Sunuyorum</span>
+          <h2 className="services-section-title">Profesyonel Hizmetler</h2>
+        </div>
         <div className="services-grid">
           {services.map((service, index) => (
             <div key={index} className="service-detail-card">
@@ -119,12 +160,30 @@ function Services() {
         </div>
       </section>
 
+      {/* Process Section */}
+      <section className="services-process-section">
+        <div className="services-process-header">
+          <span className="services-process-label">Nasıl Çalışıyoruz</span>
+          <h2 className="services-process-title">Çalışma Süreci</h2>
+        </div>
+        <div className="services-process-grid">
+          {processSteps.map((step, index) => (
+            <div key={index} className="process-step">
+              <div className="process-number">{step.number}</div>
+              <h3 className="process-step-title">{step.title}</h3>
+              <p className="process-step-description">{step.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="services-cta-section">
         <div className="services-cta-content">
           <h2 className="services-cta-title">Projenize Başlayalım</h2>
           <p className="services-cta-description">
-            Markanızı dijital dünyada güçlendirmek için hemen iletişime geçin
+            Markanızı dijital dünyada güçlendirmek için hemen iletişime geçin.
+            Birlikte başarı hikayenizi yazalım.
           </p>
           <button className="services-cta-button" onClick={() => navigate('/contact')}>
             İletişime Geçin
@@ -134,33 +193,62 @@ function Services() {
 
       {/* Footer */}
       <footer className="services-footer">
-        <div className="services-footer-content">
-          <div className="services-footer-left">
-            <h5 className="services-footer-name">Tuba Sarıoğlu Busun</h5>
-            <p className="services-footer-role">Social Media Expert</p>
+        <div className="services-footer-main-content">
+          {/* Left Side - About */}
+          <div className="services-footer-about">
+            <h4 className="services-footer-brand">Tuba Sarıoğlu Busun</h4>
+            <p className="services-footer-role">Social Media Expert & Marka Danışmanı</p>
+            <p className="services-footer-description">
+              Markaların dijital dünyada güçlenmesine yardımcı oluyor,
+              stratejik içerikler ve yaratıcı kampanyalarla fark yaratıyorum.
+            </p>
             <div className="services-footer-location">
-              <span>📍</span>
-              <span>Denizli, Turkey</span>
+              <span className="location-icon">📍</span>
+              <span>Denizli, Türkiye</span>
             </div>
           </div>
-          <div className="services-footer-right">
-            <h5 className="services-footer-heading">Benimle İletişime Geçin</h5>
-            <div className="services-footer-social">
-              <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" className="services-footer-social-link">
-                <span>📱</span>
-              </a>
-              <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" className="services-footer-social-link">
-                <span>📷</span>
-              </a>
-              <a href="mailto:zafer_sari_20@hotmail.com" className="services-footer-social-link">
-                <span>✉️</span>
-              </a>
+
+          {/* Middle - Quick Links */}
+          <div className="services-footer-links">
+            <h4 className="services-footer-heading">Hızlı Linkler</h4>
+            <ul className="services-footer-link-list">
+              <li><a onClick={() => navigate('/')}>Ana Sayfa</a></li>
+              <li><a onClick={() => navigate('/aboutme')}>Hakkımda</a></li>
+              <li><a onClick={() => navigate('/services')}>Hizmetlerimiz</a></li>
+              <li><a onClick={() => navigate('/blog')}>Blog</a></li>
+              <li><a onClick={() => navigate('/contact')}>İletişim</a></li>
+            </ul>
+          </div>
+
+          {/* Right Side - Contact */}
+          <div className="services-footer-contact">
+            <h4 className="services-footer-heading">İletişim</h4>
+            <div className="services-footer-contact-info">
+              <p className="services-footer-contact-item">
+                <span className="services-contact-icon">📧</span>
+                <a href="mailto:testoglutest05@gmail.com">testoglutest05@gmail.com</a>
+              </p>
+              <p className="services-footer-contact-item">
+                <span className="services-contact-icon">📷</span>
+                <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a>
+              </p>
             </div>
           </div>
         </div>
-        <hr className="services-footer-divider" />
-        <div className="services-footer-copyright">
-          <p>&copy; {new Date().getFullYear()} Tuba Sarıoğlu Busun. All rights reserved.</p>
+
+        {/* Bottom - Copyright */}
+        <div className="services-footer-bottom">
+          <hr className="services-footer-divider" />
+          <div className="services-footer-bottom-content">
+            <p className="services-footer-copyright">
+              &copy; {new Date().getFullYear()} Tuba Sarıoğlu Busun. Tüm hakları saklıdır.
+            </p>
+            <div className="services-footer-bottom-links">
+              <a href="#" className="services-footer-bottom-link">Gizlilik Politikası</a>
+              <span className="services-footer-separator">|</span>
+              <a href="#" className="services-footer-bottom-link">Kullanım Şartları</a>
+            </div>
+          </div>
         </div>
       </footer>
     </div>

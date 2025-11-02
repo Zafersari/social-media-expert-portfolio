@@ -4,7 +4,7 @@ import "../styles/Portfolio.css";
 function Portfolio() {
   const navigate = useNavigate();
 
-  // 8 şirket için case study verileri
+  // 8 case studies data
   const caseStudies = [
     {
       id: 1,
@@ -88,33 +88,59 @@ function Portfolio() {
     }
   ];
 
+  const stats = [
+    { number: "50+", label: "Tamamlanan Proje" },
+    { number: "30+", label: "Mutlu Müşteri" },
+    { number: "95%", label: "Başarı Oranı" },
+    { number: "5+", label: "Yıllık Deneyim" }
+  ];
+
   return (
     <div className="portfolio-container">
       {/* Navigation */}
       <nav className="portfolio-nav">
-        <div className="portfolio-nav-logo" onClick={() => navigate('/')}>
-          <img src="logo.png" alt="Website Logo" />
+        <div className="portfolio-nav-brand">
+          <img
+            src="/logo.png"
+            alt="Website Logo"
+            className="portfolio-nav-logo"
+            onClick={() => navigate('/')}
+          />
         </div>
-        <div className="portfolio-nav-menu">
-          <a className="portfolio-nav-link" onClick={() => navigate('/services')}>HIZMETLERIMIZ</a>
+        <div className="portfolio-nav-links">
+          <a className="portfolio-nav-link" onClick={() => navigate('/')}>ANA SAYFA</a>
           <a className="portfolio-nav-link" onClick={() => navigate('/aboutme')}>HAKKIMDA</a>
+          <a className="portfolio-nav-link" onClick={() => navigate('/services')}>HIZMETLERIMIZ</a>
           <a className="portfolio-nav-link" onClick={() => navigate('/blog')}>BLOG</a>
           <a className="portfolio-nav-link" onClick={() => navigate('/contact')}>ILETISIM</a>
         </div>
       </nav>
 
+      {/* Decorative circles */}
+      <div className="portfolio-decorative-circle portfolio-left-circle"></div>
+      <div className="portfolio-decorative-circle portfolio-right-circle"></div>
+      <div className="portfolio-decorative-circle portfolio-bottom-circle"></div>
+
       {/* Hero Section */}
       <section className="portfolio-hero">
         <div className="portfolio-hero-content">
-          <h1 className="portfolio-hero-title">Başarı Hikayeleri</h1>
-          <p className="portfolio-hero-subtitle">
-            Farklı sektörlerden markalarla gerçekleştirdiğim projeler ve elde edilen sonuçlar
+          <span className="portfolio-hero-subtitle">Portfolio</span>
+          <h1 className="portfolio-hero-title">
+            Başarı Hikayeleri
+          </h1>
+          <p className="portfolio-hero-description">
+            Farklı sektörlerden markalarla gerçekleştirdiğim projeler ve elde edilen sonuçlar.
+            Her proje, benzersiz stratejiler ve yaratıcı çözümlerle hayata geçirildi.
           </p>
         </div>
       </section>
 
       {/* Case Studies Grid */}
       <section className="case-studies-section">
+        <div className="case-studies-header">
+          <span className="case-studies-label">Projelerim</span>
+          <h2 className="case-studies-title">Gerçekleştirdiğim Kampanyalar</h2>
+        </div>
         <div className="case-studies-grid">
           {caseStudies.map((study) => (
             <div key={study.id} className="case-study-card">
@@ -151,46 +177,89 @@ function Portfolio() {
         </div>
       </section>
 
+      {/* Stats Section */}
+      <section className="portfolio-stats-section">
+        <div className="portfolio-stats-container">
+          {stats.map((stat, index) => (
+            <div key={index} className="portfolio-stat-card">
+              <div className="portfolio-stat-number">{stat.number}</div>
+              <div className="portfolio-stat-label">{stat.label}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="portfolio-cta-section">
-        <h2 className="portfolio-cta-title">Sizin Markanız İçin Ne Yapabilirim?</h2>
-        <p className="portfolio-cta-subtitle">
-          Benzer başarı hikayelerini birlikte yazalım
-        </p>
-        <button className="portfolio-cta-button" onClick={() => navigate('/contact')}>
-          Hemen İletişime Geçin
-        </button>
+        <div className="portfolio-cta-content">
+          <h2 className="portfolio-cta-title">Sizin Markanız İçin Ne Yapabilirim?</h2>
+          <p className="portfolio-cta-subtitle">
+            Benzer başarı hikayelerini birlikte yazalım. Projeniz için hemen iletişime geçin.
+          </p>
+          <button className="portfolio-cta-button" onClick={() => navigate('/contact')}>
+            Hemen İletişime Geçin
+          </button>
+        </div>
       </section>
 
       {/* Footer */}
       <footer className="portfolio-footer">
-        <div className="portfolio-footer-content">
-          <div className="portfolio-footer-left">
-            <h5 className="footer-name">Tuba Sarıoğlu Busun</h5>
-            <p className="footer-role">Social Media Expert</p>
-            <div className="footer-location">
-              <span>📍</span>
-              <span>Denizli, Turkey</span>
+        <div className="portfolio-footer-main-content">
+          {/* Left Side - About */}
+          <div className="portfolio-footer-about">
+            <h4 className="portfolio-footer-brand">Tuba Sarıoğlu Busun</h4>
+            <p className="portfolio-footer-role">Social Media Expert & Marka Danışmanı</p>
+            <p className="portfolio-footer-description">
+              Markaların dijital dünyada güçlenmesine yardımcı oluyor,
+              stratejik içerikler ve yaratıcı kampanyalarla fark yaratıyorum.
+            </p>
+            <div className="portfolio-footer-location">
+              <span className="location-icon">📍</span>
+              <span>Denizli, Türkiye</span>
             </div>
           </div>
-          <div className="portfolio-footer-right">
-            <h5 className="footer-heading">Benimle İletişime Geçin</h5>
-            <div className="footer-social">
-              <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" className="footer-social-link">
-                <span>📱</span>
-              </a>
-              <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" className="footer-social-link">
-                <span>📷</span>
-              </a>
-              <a href="mailto:contact@example.com" className="footer-social-link">
-                <span>✉️</span>
-              </a>
+
+          {/* Middle - Quick Links */}
+          <div className="portfolio-footer-links">
+            <h4 className="portfolio-footer-heading">Hızlı Linkler</h4>
+            <ul className="portfolio-footer-link-list">
+              <li><a onClick={() => navigate('/')}>Ana Sayfa</a></li>
+              <li><a onClick={() => navigate('/aboutme')}>Hakkımda</a></li>
+              <li><a onClick={() => navigate('/services')}>Hizmetlerimiz</a></li>
+              <li><a onClick={() => navigate('/blog')}>Blog</a></li>
+              <li><a onClick={() => navigate('/contact')}>İletişim</a></li>
+            </ul>
+          </div>
+
+          {/* Right Side - Contact */}
+          <div className="portfolio-footer-contact">
+            <h4 className="portfolio-footer-heading">İletişim</h4>
+            <div className="portfolio-footer-contact-info">
+              <p className="portfolio-footer-contact-item">
+                <span className="portfolio-contact-icon">📧</span>
+                <a href="mailto:testoglutest05@gmail.com">testoglutest05@gmail.com</a>
+              </p>
+              <p className="portfolio-footer-contact-item">
+                <span className="portfolio-contact-icon">📷</span>
+                <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a>
+              </p>
             </div>
           </div>
         </div>
-        <hr className="footer-divider" />
-        <div className="footer-copyright">
-          <p>&copy; {new Date().getFullYear()} Tuba Sarıoğlu Busun. All rights reserved.</p>
+
+        {/* Bottom - Copyright */}
+        <div className="portfolio-footer-bottom">
+          <hr className="portfolio-footer-divider" />
+          <div className="portfolio-footer-bottom-content">
+            <p className="portfolio-footer-copyright">
+              &copy; {new Date().getFullYear()} Tuba Sarıoğlu Busun. Tüm hakları saklıdır.
+            </p>
+            <div className="portfolio-footer-bottom-links">
+              <a href="#" className="portfolio-footer-bottom-link">Gizlilik Politikası</a>
+              <span className="portfolio-footer-separator">|</span>
+              <a href="#" className="portfolio-footer-bottom-link">Kullanım Şartları</a>
+            </div>
+          </div>
         </div>
       </footer>
     </div>
