@@ -1,72 +1,50 @@
-const transporter = require('../config/email');
+const emailQueue = require('../config/queue');
 
 /**
- * Send contact form notification email
- * @param {Object} contactData - Contact form data
- * @param {string} contactData.name - Sender's name
- * @param {string} contactData.email - Sender's email
- * @param {string} contactData.subject - Email subject
- * @param {string} contactData.message - Email message
- * @param {number} contactData.messageId - Database message ID
- * @returns {Promise<Object>} Email send result
+ * Email servis katmanı
+ * Direkt email göndermek yerine Bull queue'ya job ekler
+ * Worker (emailWorker.js) kuyruktan alıp işler
+ */
+
+/**
+ * İletişim formu bildirim emaili kuyruğa ekle
+ * @param {Object} contactData - İletişim formu verileri
  */
 async function sendContactNotification(contactData) {
-  const { name, email, subject, message, messageId } = contactData;
+  const job = await emailQueue.add({
+    type: 'contact-notification',
+    data: {
+      name: contactData.name,
+      email: contactData.email,
+      subject: contactData.subject,
+      message: contactData.message,
+      messageId: contactData.messageId,
+    },
+  });
 
-  const mailOptions = {
-    from: process.env.EMAIL_USER,
-    to: process.env.EMAIL_USER,
-    replyTo: email,
-    subject: `Contact Form: ${subject}`,
-    html: `
-      <h3>New Contact Form Submission</h3>
-      <p><strong>Name:</strong> ${name}</p>
-      <p><strong>Email:</strong> ${email}</p>
-      <p><strong>Subject:</strong> ${subject}</p>
-      <p><strong>Message:</strong></p>
-      <p>${message}</p>
-      <hr>
-      <p><small>Message ID: ${messageId}</small></p>
-    `
-  };
-
-  try {
-    const info = await transporter.sendMail(mailOptions);
-    console.log('✅ Email notification sent successfully');
-    return { success: true, messageId: info.messageId };
-  } catch (error) {
-    console.error('⚠️ Email failed:', error.message);
-    throw error;
-  }
+  console.log(`📨 Contact notification kuyruğa eklendi — Job #${job.id}`);
+  return { success: true, jobId: job.id };
 }
 
 /**
- * Send welcome email (example for future use)
- * @param {string} recipientEmail - Recipient's email
- * @param {string} recipientName - Recipient's name
+ * Hoş geldin emaili kuyruğa ekle
+ * @param {string} recipientEmail - Alıcı email
+ * @param {string} recipientName - Alıcı adı
  */
 async function sendWelcomeEmail(recipientEmail, recipientName) {
-  const mailOptions = {
-    from: process.env.EMAIL_USER,
-    to: recipientEmail,
-    subject: 'Welcome!',
-    html: `
-      <h3>Welcome ${recipientName}!</h3>
-      <p>Thank you for getting in touch. I'll get back to you soon!</p>
-    `
-  };
+  const job = await emailQueue.add({
+    type: 'welcome',
+    data: {
+      email: recipientEmail,
+      name: recipientName,
+    },
+  });
 
-  try {
-    await transporter.sendMail(mailOptions);
-    console.log('✅ Welcome email sent to:', recipientEmail);
-    return { success: true };
-  } catch (error) {
-    console.error('⚠️ Welcome email failed:', error.message);
-    throw error;
-  }
+  console.log(`📨 Welcome email kuyruğa eklendi — Job #${job.id}`);
+  return { success: true, jobId: job.id };
 }
 
 module.exports = {
   sendContactNotification,
-  sendWelcomeEmail
+  sendWelcomeEmail,
 };

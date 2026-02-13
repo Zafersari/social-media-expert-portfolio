@@ -15,7 +15,7 @@ function Contact() {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:5000/api/contact', {
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -29,7 +29,7 @@ function Contact() {
         alert('Mesajınız başarıyla gönderildi!');
         setFormData({ name: '', email: '', subject: '', message: '' });
       } else {
-        alert('Hata: ' + (data.error || 'Mesaj gönderilemedi'));
+        alert('Hata: ' + (data.message || 'Mesaj gönderilemedi'));
       }
     } catch (error) {
       console.error('Error:', error);

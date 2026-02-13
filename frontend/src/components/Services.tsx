@@ -1,43 +1,51 @@
 import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 import "../styles/Services.css";
+
+interface Service {
+  id?: number;
+  icon: string;
+  title: string;
+  description: string;
+  features: string[];
+}
 
 function Services() {
   const navigate = useNavigate();
+  const [services, setServices] = useState<Service[]>([]);
+  const [loading, setLoading] = useState(true);
 
-  const services = [
-    {
-      icon: "📈",
-      title: "Strateji Geliştirme",
-      description: "Markanızın hedeflerine özel, kapsamlı sosyal medya stratejileri oluşturuyorum. Hedef kitle analizi, rakip analizi ve içerik takvimi ile markanızı dijital dünyada güçlendiriyorum.",
-      features: [
-        "Hedef kitle analizi",
-        "Rakip analizi ve pazar araştırması",
-        "İçerik takvimi oluşturma",
-        "Platform seçimi ve optimizasyon"
-      ]
-    },
-    {
-      icon: "✍️",
-      title: "İçerik Üretimi",
-      description: "Hedef kitlenizle rezonans kuran, etkileyici gönderiler, hikayeler ve kampanyalar. Profesyonel görseller ve özgün metinlerle markanızın sesini yükseltin.",
-      features: [
-        "Görsel ve video içerik tasarımı",
-        "Yaratıcı metin yazarlığı",
-        "Hikaye ve reel üretimi",
-        "Marka kimliğine uygun içerikler"
-      ]
-    },
-    {
-      icon: "📊",
-      title: "Analiz ve Büyüme",
-      description: "Veri odaklı içgörüler ve optimizasyon ile sosyal medya getirinizi maksimize ediyorum. Detaylı raporlama ve sürekli iyileştirme ile hedeflerinize ulaşın.",
-      features: [
-        "Performans takibi ve raporlama",
-        "A/B test ve optimizasyon",
-        "Takipçi büyüme stratejileri",
-        "ROI analizi ve iyileştirme"
-      ]
-    },
+  // Backend'den gelen hizmetlere eklenecek features (API'de yok)
+  const featuresMap: Record<string, string[]> = {
+    'Strategy Development': [
+      "Hedef kitle analizi",
+      "Rakip analizi ve pazar araştırması",
+      "İçerik takvimi oluşturma",
+      "Platform seçimi ve optimizasyon"
+    ],
+    'Content Creation': [
+      "Görsel ve video içerik tasarımı",
+      "Yaratıcı metin yazarlığı",
+      "Hikaye ve reel üretimi",
+      "Marka kimliğine uygun içerikler"
+    ],
+    'Analytics & Growth': [
+      "Performans takibi ve raporlama",
+      "A/B test ve optimizasyon",
+      "Takipçi büyüme stratejileri",
+      "ROI analizi ve iyileştirme"
+    ],
+  };
+
+  // Türkçe başlık eşlemesi
+  const titleMap: Record<string, string> = {
+    'Strategy Development': 'Strateji Geliştirme',
+    'Content Creation': 'İçerik Üretimi',
+    'Analytics & Growth': 'Analiz ve Büyüme',
+  };
+
+  // Sadece frontend'de bulunan ek hizmetler
+  const extraServices: Service[] = [
     {
       icon: "🎯",
       title: "Reklam Kampanyaları",
@@ -73,6 +81,32 @@ function Services() {
     }
   ];
 
+  useEffect(() => {
+    const fetchServices = async () => {
+      try {
+        const response = await fetch('/api/services');
+        if (response.ok) {
+          const apiServices = await response.json();
+          // API'den gelen servislere features ve Türkçe başlık ekle
+          const enriched = apiServices.map((s: { title: string; description: string; icon: string }) => ({
+            ...s,
+            title: titleMap[s.title] || s.title,
+            features: featuresMap[s.title] || [],
+          }));
+          setServices([...enriched, ...extraServices]);
+        } else {
+          // API başarısızsa fallback olarak sadece extra servisleri göster
+          setServices(extraServices);
+        }
+      } catch {
+        setServices(extraServices);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchServices();
+  }, []);
+
   const processSteps = [
     {
       number: "1",
@@ -95,6 +129,10 @@ function Services() {
       description: "Sürekli veri analizi ile performansı ölçüyor ve iyileştirmeler yapıyorum."
     }
   ];
+
+  if (loading) {
+    return <div className="services-container" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh', color: '#fff' }}>Yükleniyor...</div>;
+  }
 
   return (
     <div className="services-container">

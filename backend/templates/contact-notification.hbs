@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yeni İletişim Formu Mesajı</title>
+</head>
+<body style="margin:0; padding:0; background-color:#f4f4f7; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color:#f4f4f7; padding:40px 0;">
+    <tr>
+      <td align="center">
+        <table role="presentation" width="600" cellspacing="0" cellpadding="0" style="background-color:#ffffff; border-radius:12px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,0.08);">
+
+          <!-- Header -->
+          <tr>
+            <td style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding:32px 40px; text-align:center;">
+              <h1 style="color:#ffffff; margin:0; font-size:22px; font-weight:600;">📬 Yeni İletişim Mesajı</h1>
+            </td>
+          </tr>
+
+          <!-- Body -->
+          <tr>
+            <td style="padding:32px 40px;">
+
+              <!-- İsim -->
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="margin-bottom:20px;">
+                <tr>
+                  <td style="color:#8e8e9a; font-size:12px; text-transform:uppercase; letter-spacing:1px; padding-bottom:4px;">Gönderen</td>
+                </tr>
+                <tr>
+                  <td style="color:#2d2d3f; font-size:16px; font-weight:600;">{{name}}</td>
+                </tr>
+              </table>
+
+              <!-- Email -->
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="margin-bottom:20px;">
+                <tr>
+                  <td style="color:#8e8e9a; font-size:12px; text-transform:uppercase; letter-spacing:1px; padding-bottom:4px;">Email</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="mailto:{{email}}" style="color:#667eea; font-size:16px; text-decoration:none;">{{email}}</a>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- Konu -->
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="margin-bottom:20px;">
+                <tr>
+                  <td style="color:#8e8e9a; font-size:12px; text-transform:uppercase; letter-spacing:1px; padding-bottom:4px;">Konu</td>
+                </tr>
+                <tr>
+                  <td style="color:#2d2d3f; font-size:16px;">{{subject}}</td>
+                </tr>
+              </table>
+
+              <!-- Mesaj -->
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="margin-bottom:24px;">
+                <tr>
+                  <td style="color:#8e8e9a; font-size:12px; text-transform:uppercase; letter-spacing:1px; padding-bottom:8px;">Mesaj</td>
+                </tr>
+                <tr>
+                  <td style="background-color:#f8f8fc; border-left:4px solid #667eea; padding:16px 20px; border-radius:0 8px 8px 0; color:#2d2d3f; font-size:15px; line-height:1.6;">
+                    {{message}}
+                  </td>
+                </tr>
+              </table>
+
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td style="background-color:#f8f8fc; padding:20px 40px; text-align:center; border-top:1px solid #ececf1;">
+              <p style="color:#8e8e9a; font-size:12px; margin:0;">
+                Mesaj ID: #{{messageId}} &bull; {{year}} &copy; Social Media Expert Portfolio
+              </p>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
